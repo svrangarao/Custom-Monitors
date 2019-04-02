@@ -1,0 +1,8 @@
+from commands import *
+
+disk_utilization = getoutput("df -h | awk \'$NF==\"/\"{ print $5}\' | sed \'s/%//g\'")
+disk_total=getoutput("df -h | awk \'$NF==\"/\"{ print $2}\'")
+disk_used=getoutput("df -h | awk \'$NF==\"/\"{ print $3}\'")
+disk_free=getoutput("df -h | awk \'$NF==\"/\"{ print $4}\'")
+
+print "{\n\"datapoints\":{ \n\t\"Disk Usage\" : "+disk_utilization+" \n\t}, \n\"tokens\":{ \n\t\"disk_utilization.total\" :\""+disk_total+"B\", \n\t\"disk_utilization.used\" :\""+disk_used+"B\", \n\t\"disk_utilization.free\" : \""+disk_free+"B\"\n\t}\n} ";
