@@ -1,0 +1,33 @@
+Output of this script should be a string (JSON Format) on to the standard output stream.
+{
+"Data Point Format",
+["Token Format"]
+}
+Data Point Format:
+"datapoints" : {
+"instancename" : ["]datapoint value["],
+"instancename" : ["]data point value["]
+}
+Token Format:
+"tokens" : {
+"token key" : "token value",
+"token key" : "token value"
+}
+Example 1:
+{
+"datapoints" : {
+"DiskC" : 50,
+"DiskD" : 81
+}
+}
+Example 2:
+{
+"datapoints" : {
+"DiskC" : 50,
+"DiskD" : 81
+}
+"tokens": {
+"disk_utilization.total" : "DiskC : 40 GB, DiskD : 100 GB",
+"disk_utilization.used" : "DiskC : 20 GB, DiskD : 50 GB"
+}
+}
